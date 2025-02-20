@@ -7,14 +7,14 @@ namespace LB4_AnimeTitlesApp.Models;
 public partial class AppContext : DbContext
 {
     // конструкторы класса AppContext
-    public AppContext()
-    {
-    }
+    //public AppContext()
+    //{
+    //}
 
-    public AppContext(DbContextOptions<AppContext> options)
-        : base(options)
-    {
-    }
+    //public AppContext(DbContextOptions<AppContext> options)
+    //    : base(options)
+    //{
+    //}
 
     // свойства класса для связи с таблицами базы данных
     public virtual DbSet<AnimeTitle> AnimeTitles { get; set; }
@@ -52,17 +52,17 @@ public partial class AppContext : DbContext
             entity.Property(e => e.TitleName).HasColumnName("titleName");
             entity.Property(e => e.YearOfRelease).HasColumnName("yearOfRelease");
 
-            entity.HasOne(d => d.IdAnimeTypeNavigation).WithMany(p => p.AnimeTitles)
+            entity.HasOne(d => d.AnimeType).WithMany(p => p.AnimeTitles)
                 .HasForeignKey(d => d.IdAnimeType)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_titles_types");
 
-            entity.HasOne(d => d.IdGenreNavigation).WithMany(p => p.AnimeTitles)
+            entity.HasOne(d => d.Genre).WithMany(p => p.AnimeTitles)
                 .HasForeignKey(d => d.IdGenre)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_titles_genres");
 
-            entity.HasOne(d => d.IdModeratorsNavigation).WithMany(p => p.AnimeTitles)
+            entity.HasOne(d => d.User).WithMany(p => p.AnimeTitles)
                 .HasForeignKey(d => d.IdModerators)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_titles_users");
