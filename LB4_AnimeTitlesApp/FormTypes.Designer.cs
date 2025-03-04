@@ -60,6 +60,7 @@
             buttonTypeAdd.TabIndex = 0;
             buttonTypeAdd.Text = "Добавить";
             buttonTypeAdd.UseVisualStyleBackColor = true;
+            buttonTypeAdd.Click += buttonTypeAdd_Click;
             // 
             // buttonTypeUpdate
             // 
@@ -72,12 +73,13 @@
             // 
             // buttonTypeDelete
             // 
+            buttonTypeDelete.BackColor = Color.Transparent;
             buttonTypeDelete.Location = new Point(325, 13);
             buttonTypeDelete.Name = "buttonTypeDelete";
             buttonTypeDelete.Size = new Size(150, 35);
             buttonTypeDelete.TabIndex = 2;
             buttonTypeDelete.Text = "Удалить";
-            buttonTypeDelete.UseVisualStyleBackColor = true;
+            buttonTypeDelete.UseVisualStyleBackColor = false;
             // 
             // panelFill
             // 
@@ -116,7 +118,6 @@
             Margin = new Padding(5);
             Name = "FormTypes";
             Text = "Типы аниме";
-            Load += FormTypes_Load;
             flowLayoutPanelTop.ResumeLayout(false);
             panelFill.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewTypes).EndInit();
